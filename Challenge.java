@@ -5,7 +5,18 @@ public class Challenge {
         for (int i = 0; i < message.length(); i++) {
             if (!message.substring(i, i+1).equals(" ")) {
                 char letter = message.charAt(i);
-                letter += 2;
+                if (letter == 122) {
+                    letter = 98;
+                }
+                else if (letter == 121) {
+                    letter = 97;
+                }
+                else if (letter < 47 || letter > 122) {
+
+                }
+                else {
+                    letter+=2;
+                }
                 newMessage += letter;
             }
             else {
