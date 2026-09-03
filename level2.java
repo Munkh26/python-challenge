@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class level2 {
       public static void main(String[] args) {
-            File myObj = new File("key.txt");
+            File myObj = new File("level2.txt");
             Pattern pat = Pattern.compile("[a-zA-Z]"); // step 1 compile your pattern
             try (Scanner myReader = new Scanner(myObj)) {
                   while (myReader.hasNextLine()) {
