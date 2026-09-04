@@ -8,16 +8,16 @@ public class level3 {
     public static void main(String[] args) {
         String key = "";
         File myObj = new File("level3.txt");
-        Pattern pat = Pattern.compile("([A-Z]{3})[a-z]([A-Z]{3})"); // step 1 compile your pattern
+        Pattern pat = Pattern.compile("[^A-Z][A-Z][A-Z][A-Z][a-z][A-Z][A-Z][A-Z][^A-Z]"); // step 1 compile your pattern
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 Matcher mat = pat.matcher(data); // step 2 set up your matcher
                 while (mat.find()) {// step 3 look through until you find a match
-                    System.out.println(mat.group()); // print the last match found
+                    key += mat.group().substring(4,5); // print the last match found
                 }
-
             }
+            System.out.println(key);
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
