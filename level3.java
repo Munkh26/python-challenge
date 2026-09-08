@@ -1,3 +1,6 @@
+//Name: Munkhsoyombo Munkhbat
+//Description: It reads the text file and uses regex to find the letters that are surrounded by exactly three uppercase letters on each of its sides and then it prints the letters that are found.
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.File;
