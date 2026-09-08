@@ -27,9 +27,7 @@ public class level4 {
                     while (mat.find()) {
                          nothing += mat.group(1);
                     }
-
-                    System.out.println(nothing);
-
+                    
                }
 
           }
