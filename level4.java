@@ -7,8 +7,9 @@ import java.util.regex.Pattern;
 
 public class level4 {
      public static void main(String[] args) throws IOException {
+          boolean lineToRead = true;
           String nothing = "12345";
-          while (nothing != null) {
+          while (lineToRead == true) {
                URL url = new URL("https://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=" + nothing);
                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
                String line = reader.readLine();
@@ -16,7 +17,7 @@ public class level4 {
                Pattern pat = Pattern.compile("and the next nothing is ([0-9]+)");
                Matcher mat = pat.matcher(line);
 
-               if (line.contains("Yes")) {
+               if (line.contains("Yes. Divide")) {
                     int newNum = Integer.parseInt(nothing);
                     newNum /= 2;
                     nothing = "" + newNum;
@@ -25,9 +26,12 @@ public class level4 {
                } else {
                     nothing = "";
                     while (mat.find()) {
-                         nothing += mat.group(1);
+                         nothing = mat.group(1);
                     }
-                    
+               }
+
+               if (reader.readLine() == null && nothing.equals("")) {
+                    lineToRead = false;
                }
 
           }
